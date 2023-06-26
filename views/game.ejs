@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/nav-style.css" />
+    <link rel="stylesheet" href="/stylesheets/game-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Game List</title>
+  </head>
+  <body>
+    <nav class="NavBarItems">
+      <div class="logo-content">
+        <h1 class="logo">Logo</h1>
+        <ul id="navMenu" class="nav-menu">
+          <li><a href="/game">Game</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
+          <li><a href="/about">Tentang</a></li>
+          <p class="greeting">Halo, <%= username %> 👋</p>
+        </ul>
+      </div>
+      <div class="menu-icons">
+        <i id="menuIconBars" class="fas fa-bars"></i>
+        <i id="menuIconTimes" class="fas fa-times"></i>
+      </div>
+      <p class="greeting-wide">Halo, <%= username %> 👋</p>
+    </nav>
+
+    <section id="game" class="game-list">
+      <div class="game">
+        <p class="greeting-mobile">Halo, <%= username %> 👋</p>
+        <h1 class="tagline">Banyak Permainan Yang Bisa di Mainkan</h1>
+        <div class="content">
+          <div class="game-card">
+            <img src="/images/snake.png" alt="" />
+            <div class="category">
+              <p>SinglePlayer</p>
+              <p>Arcade</p>
+            </div>
+            <button onclick="directToSnakeGame()">Mainkan</button>
+          </div>
+          <div class="game-card">
+            <img src="/images/tictactoe.png" alt="" />
+            <div class="category">
+              <p>Papan</p>
+              <p>Multiplayer</p>
+            </div>
+            <button>Mainkan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="leaderboard" id="leaderboard">
+      <h1>Leaderboard</h1>
+      <div class="content">
+        <div class="snake">
+          <h3>Top 5 Peringkat Permainan Ular</h3>
+          <ul id="users_snake"></ul>
+        </div>
+        <div class="tictactoe">
+          <h3>Top 5 Peringkat Permainan TicTacToe</h3>
+          <ul id="users_tictactoe"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="/javascript/game-script.js"></script>
+    <script src="/javascript/nav-script.js"></script>
+  </body>
+</html>

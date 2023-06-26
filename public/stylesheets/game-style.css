@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&display=swap");
+
+:root {
+  --padding: 1rem 5rem;
+  --primary: #137576;
+  --secondary: #ebd8c8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: #303030;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Game list */
+
+.game {
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.game .tagline {
+  font-weight: 600;
+}
+
+.game .content {
+  gap: 2rem;
+  display: flex;
+}
+
+.game .game-card {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 0.5rem;
+}
+
+.game .game-card img {
+  width: 10rem;
+  border: 4px solid var(--primary);
+  border-radius: 1rem;
+}
+
+.game .content .game-card .title {
+  font-weight: 700;
+}
+
+.game .content .game-card .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game .content .game-card .category p {
+  background-color: rgb(243, 78, 78);
+  padding: 4px 10px;
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.game .content .game-card button {
+  width: 100%;
+  margin-top: 1rem;
+  background-color: var(--primary);
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.game .content .game-card button:hover {
+  background-color: #209092;
+}
+
+.greeting-mobile {
+  display: none;
+}
+
+.leaderboard {
+  display: block;
+  padding: 2rem 1rem;
+}
+
+.leaderboard h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.leaderboard .content ul li:nth-child(n + 2) h4 {
+  margin-top: 1rem;
+}
+
+.leaderboard .content {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.leaderboard .content div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaderboard .content h3 {
+  margin-bottom: 1rem;
+}
+
+.leaderboard #users_snake {
+  padding: 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  width: 50%;
+}
+
+.leaderboard #users_tictactoe {
+  padding: 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  width: 50%;
+}
+
+.progress-tictactoe,
+.progress-snake {
+  width: 0%;
+  height: 20px;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 0.2rem;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 1s;
+}
+
+@media screen and (max-width: 850px) {
+  /* Game */
+
+  .greeting-mobile {
+    padding-top: 6rem;
+    display: block;
+    margin-bottom: -7rem;
+  }
+
+  .game {
+    height: auto;
+  }
+
+  .game .tagline {
+    font-size: 1.2rem;
+    margin-top: 5rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .game .content {
+    display: block;
+    width: 100%;
+  }
+
+  .game .content .game-card {
+    margin-top: 1rem;
+  }
+
+  .game .content .game-card .category p {
+    padding: 0;
+    width: 100%;
+    padding: 0.2rem 0;
+  }
+
+
+  .leaderboard .content {
+    display: block;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .leaderboard .content div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leaderboard .content h3 {
+    font-size: 0.9rem;
+  }
+
+  .leaderboard .content .tictactoe {
+    margin-top: 2rem;
+  }
+
+  .leaderboard .content ul li h4 {
+    font-size: 0.8rem;
+  }
+}

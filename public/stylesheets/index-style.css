@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&display=swap");
+
+:root {
+  --padding: 1rem 5rem;
+  --primary: #137576;
+  --secondary: #ebd8c8;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: #303030;
+}
+
+a {
+  text-decoration: none;
+}
+
+.add-player {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 20rem;
+  /* tambahan */
+  height: 100vh;
+  /* Mengisi tinggi kontainer dengan tinggi viewport */
+}
+
+.add-player form {
+  border: 1px solid var(--primary);
+  padding: 4rem;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.add-player form h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+}
+
+.add-player form p {
+  font-size: 0.9rem;
+}
+
+.add-player form #name {
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--primary);
+  color: #303030;
+}
+
+.add-player form #name:focus {
+  outline: none;
+}
+
+.add-player form input {
+  margin-top: 1rem;
+}
+
+.btn-submit {
+  width: 6rem;
+  padding: 0.5rem 1rem;
+  color: var(--secondary);
+  background-color: var(--primary);
+  border: none;
+  border-radius: 0.7rem;
+}
+
+.btn-submit:hover {
+  background-color: #209092;
+}

@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&display=swap");
+
+:root {
+  --padding: 1rem 5rem;
+  --primary: #137576;
+  --secondary: #ebd8c8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: #303030;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Nav */
+.NavBarItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: calc(100vw - 5rem);
+  /* Mengurangi lebar dengan 16px untuk mengantisipasi lebar scroll bar */
+  color: var(--secondary);
+}
+
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo {
+  justify-self: start;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-menu a {
+  color: var(--secondary);
+}
+
+.fa-bars,
+.fa-times {
+  color: var(--secondary);
+}
+
+.menu-icons {
+  display: none;
+}
+
+.greeting {
+  display: none;
+}
+
+.greeting-wide {
+  display: block;
+}
+
+@media screen and (max-width: 850px) {
+  .NavBarItems {
+    width: 100%;
+  }
+
+  .greeting-wide {
+    display: none;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--primary);
+    box-shadow: 0 9px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 13px;
+    height: auto;
+    position: absolute;
+    top: 4.6rem;
+    display: none;
+    right: 2px;
+    align-items: stretch;
+    padding: 1rem 2rem;
+    margin: 0;
+    z-index: 99;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    right: 0%;
+  }
+
+  .nav-links {
+    display: block;
+    widows: 100%;
+    padding: 2rem 0;
+    color: #222;
+  }
+
+  .nav-links:hover {
+    background: rgba(255, 255, 2555, 0.25);
+    backdrop-filter: blur(20px);
+  }
+
+  .menu-icons {
+    display: block;
+    position: absolute;
+    right: 6rem;
+  }
+
+  .menu-icons #menuIconBars {
+    display: block;
+  }
+
+  .menu-icons #menuIconTimes {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    padding: 1.5rem;
+    display: block;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 80%;
+    margin: auto;
+  }
+}

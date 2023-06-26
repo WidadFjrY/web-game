@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&display=swap");
+
+:root {
+    --padding: 1rem 5rem;
+    --primary: #137576;
+    --secondary: #ebd8c8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    color: #303030;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.snake-board .board {
+    margin-top: 1rem;
+}
+
+.snake-game {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.snake-game h1 {
+    text-align: center;
+    color: var(--primary);
+}
+
+.snake-game .info h3 {
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--primary);
+}
+
+.snake-game .info .info-user {
+    border: 1px solid var(--primary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.snake-board .board #snake-canvas {
+    background-image: url("/images/game-assets/snake/snake-board2.jpg");
+    background-size: cover;
+}
+
+
+#users_snake {
+    border: 1px solid var(--primary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+
+#select {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background-color: #13747662;
+}
+
+#select .content {
+    background-color: var(--primary);
+    height: 10rem;
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    border-radius: 0.5rem;
+}
+
+#select .content select {
+    margin-top: 1rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+}
+
+#select .content select:focus {
+    outline: none;
+}
+
+#select .content button {
+    background-color: var(--primary);
+    padding: 0.5rem 1rem;
+    border: var(--secondary);
+    color: var(--secondary);
+    margin-top: 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#select .content button:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+#game-over {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background-color: #13747662;
+    padding-bottom: 1rem;
+}
+
+#game-over .content {
+    background-color: var(--primary);
+    height: 10rem;
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    border-radius: 0.5rem;
+}
+
+#game-over .content .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#game-over .content button {
+    background-color: var(--primary);
+    padding: 0.5rem 1rem;
+    border: var(--secondary);
+    color: var(--secondary);
+    margin-top: 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#game-over .content button:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-snake button {
+    margin-top: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border: 1px solid var(--primary);
+    border-radius: 0.5rem;
+    transition: 0.2s;
+}
+
+.btn-snake button i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.btn-snake button:focus {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/nav-style.css" />
+    <link rel="stylesheet" href="/stylesheets/game-snake-style.css" />
+    <title>Snake Game</title>
+  </head>
+  <body>
+    <nav class="NavBarItems">
+      <div class="logo-content">
+        <h1 class="logo">Logo</h1>
+        <ul id="navMenu" class="nav-menu">
+          <li><a href="/game">Game</a></li>
+          <li><a href="/leaderboard">Leaderboard</a></li>
+          <li><a href="/about">Tentang</a></li>
+          <p class="greeting">Halo, <%= username %> 👋</p>
+        </ul>
+      </div>
+      <div class="menu-icons">
+        <i id="menuIconBars" class="fas fa-bars"></i>
+        <i id="menuIconTimes" class="fas fa-times"></i>
+      </div>
+      <p class="greeting-wide">Halo, <%= username %> 👋</p>
+    </nav>
+
+    <section id="select">
+      <div class="content">
+        <label for="difficulty-select">Pilih tingkat kesulitan</label>
+        <select id="difficulty-select" onchange="difficultySelect()">
+          <option value="easy">Mudah</option>
+          <option value="medium">Sedang</option>
+          <option value="hard">Sulit</option>
+        </select>
+        <button onclick="start()">Mulai</button>
+      </div>
+    </section>
+
+    <section id="game-over">
+      <div class="content">
+        <h1>Game Over</h1>
+        <p>Dengan Score: <span id="score-game-over"></span></p>
+        <div class="btn">
+          <button onclick="reset()">Mulai Ulang</button>
+          <button onclick="main()">Main Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="snake-game" id="snake-game">
+      <div class="info">
+        <h3>Info Player</h3>
+        <div class="info-user">
+          <p>Player: <%= username %></p>
+          <p>Score: <span id="current-score"></span></p>
+          <p>High Score: <%= highscore %></p>
+        </div>
+        <h3>Mainkan Game Lainnya</h3>
+        <div class="game-card">
+          <img src="/images/tictactoe.png" alt="" />
+          <div class="category">
+            <p>Papan</p>
+            <p>Multiplayer</p>
+          </div>
+          <button>Mainkan</button>
+        </div>
+      </div>
+
+      <div class="snake-board">
+        <h1>Snake Game</h1>
+        <div class="board">
+          <canvas id="snake-canvas" width="600" height="600"> </canvas>
+        </div>
+      </div>
+
+      <div class="snake">
+        <h3>Top 5 Peringkat Permainan Ular</h3>
+        <ul id="users_snake"></ul>
+      </div>
+    </section>
+
+    <script src="/javascript/game-snake-script.js"></script>
+    <script src="/javascript/nav-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;900&display=swap");
+
+:root {
+  --padding: 1rem 5rem;
+  --primary: #137576;
+  --secondary: #ebd8c8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: #303030;
+}
+
+a {
+  text-decoration: none;
+}
+
+.NavBarItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: calc(100vw - 4rem);
+  /* Mengurangi lebar dengan 16px untuk mengantisipasi lebar scroll bar */
+  color: var(--secondary);
+}
+
+.snake-game {
+  display: flex;
+  justify-content: center;
+  padding: 0 4rem;
+  padding-top: 6rem;
+  gap: 3rem;
+}
+
+.snake-board h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.snake-board .board {
+  margin-top: 1rem;
+}
+
+.snake-game .info {
+  width: 25%;
+}
+
+.snake-game .info h3 {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+.snake-game .info .info-user {
+  border: 1px solid var(--primary);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.other-game {
+  border: 1px solid var(--primary);
+}
+
+.game-card {
+  width: 100%;
+  padding: 2rem 0;
+  margin: auto;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--primary);
+}
+
+.game-card img {
+  width: 10rem;
+  border: 4px solid var(--primary);
+  border-radius: 1rem;
+}
+
+.game-card .title {
+  font-weight: 700;
+}
+
+.game-card .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game-card .category p {
+  background-color: rgb(243, 78, 78);
+  padding: 4px 10px;
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.game-card button {
+  width: 10rem;
+  margin-top: 1rem;
+  background-color: var(--primary);
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.game-card button:hover {
+  background-color: #209092;
+}
+
+.snake-board .board #snake-canvas {
+  background-image: url("/images/game-assets/snake/snake-board2.jpg");
+  background-size: cover;
+}
+
+.snake {
+  margin-top: 3rem;
+  width: 25%;
+}
+
+.snake h3 {
+  text-align: center;
+  color: var(--primary);
+}
+
+#users_snake {
+  border: 1px solid var(--primary);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.snake ul li:nth-child(n + 2) .name {
+  margin-top: 1rem;
+}
+
+.progress-snake {
+  margin-top: 0.5rem;
+  width: 0%;
+  height: 20px;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 0.4rem;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 1s;
+}
+
+#select {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  background-color: #13747662;
+}
+
+#select .content {
+  background-color: var(--primary);
+  height: 10rem;
+  color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  border-radius: 0.5rem;
+}
+
+#select .content select {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  color: var(--secondary);
+  width: 10rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+}
+
+#select .content button {
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  border: var(--secondary);
+  color: var(--secondary);
+  margin-top: 1rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#select .content button:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+#game-over {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  background-color: #13747662;
+}
+
+#game-over .content {
+  background-color: var(--primary);
+  height: 10rem;
+  color: var(--secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  border-radius: 0.5rem;
+}
+
+#game-over .content .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#game-over .content button {
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  border: var(--secondary);
+  color: var(--secondary);
+  margin-top: 1rem;
+  border: 1px solid var(--secondary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#game-over .content button:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+}

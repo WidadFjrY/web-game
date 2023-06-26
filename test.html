@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake Game</title>
+    <style>
+      canvas {
+        display: block;
+        margin: 0 auto;
+        background-image: url("public/images/game-assets/snake/snake-board2.jpg");
+        background-size: cover;
+      }
+    </style>
+    <label for="difficulty-select">Pilih tingkat kesulitan:</label>
+    <select id="difficulty-select" onchange="difficultySelect()">
+      <option value="easy">Mudah</option>
+      <option value="medium">Sedang</option>
+      <option value="hard">Sulit</option>
+    </select>
+
+    <button onclick="start()">Mulai</button>
+  </head>
+  <body>
+    <canvas id="snakeCanvas" width="600" height="600"></canvas>
+    <script>
+      // Variabel untuk mengakses elemen canvas
+      // Game
+      const canvas = document.getElementById("snakeCanvas");
+      const context = canvas.getContext("2d");
+      const snakeHead = new Image();
+      const snakeBody = new Image();
+      const snakeTail = new Image();
+      const apple = new Image();
+      const star = new Image();
+
+      star.src = "/public/images/game-assets/snake/star.png";
+      snakeHead.src = "/public/images/game-assets/snake/body.png";
+      snakeBody.src = "/public/images/game-assets/snake/body-2.png";
+      apple.src = "/public/images/game-assets/snake/apple.png";
+
+      const canvasWidth = 600;
+      const canvasHeight = 600;
+      const gridSize = canvasWidth / 15;
+      const gridCount = canvasWidth / gridSize;
+
+      let snake = [
+        { x: 8 * gridSize, y: 8 * gridSize },
+        { x: 7 * gridSize, y: 8 * gridSize },
+        { x: 6 * gridSize, y: 8 * gridSize },
+      ];
+
+      let direction = "right";
+      let food = { x: 10 * gridSize, y: 10 * gridSize };
+      let starPos = { x: 8 * gridSize, y: 8 * gridSize };
+      let score = 0;
+      let foodCount = 0;
+
+      function draw() {
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        context.drawImage(
+          snakeHead,
+          snake[0].x,
+          snake[0].y,
+          gridSize,
+          gridSize
+        );
+
+        for (let i = 1; i < snake.length - 1; i++) {
+          context.drawImage(
+            snakeBody,
+            snake[i].x,
+            snake[i].y,
+            gridSize,
+            gridSize
+          );
+        }
+
+        context.drawImage(
+          snakeBody,
+          snake[snake.length - 1].x,
+          snake[snake.length - 1].y,
+          gridSize,
+          gridSize
+        );
+
+        context.drawImage(apple, food.x, food.y, gridSize, gridSize);
+
+        if (foodCount === 10) {
+          context.drawImage(star, starPos.x, starPos.y, gridSize, gridSize);
+        }
+
+        context.fillStyle = "white";
+        context.font = "20px Arial";
+        context.fillText("Score: " + score, 10, 30);
+      }
+
+      let lastUpdateTime = 0;
+
+      function update(currentTime) {
+        let head = { x: snake[0].x, y: snake[0].y };
+        if (direction === "right") head.x += gridSize;
+        if (direction === "left") head.x -= gridSize;
+        if (direction === "up") head.y -= gridSize;
+        if (direction === "down") head.y += gridSize;
+
+        if (
+          snake.some((segment) => segment.x === head.x && segment.y === head.y)
+        ) {
+          gameOver();
+          return;
+        }
+
+        if (
+          head.x < 0 ||
+          head.x >= canvasWidth ||
+          head.y < 0 ||
+          head.y >= canvasHeight
+        ) {
+          gameOver();
+          return;
+        }
+
+        if (head.x === food.x && head.y === food.y) {
+          score += 10;
+          foodCount++;
+          food = {
+            x: Math.floor(Math.random() * gridCount) * gridSize,
+            y: Math.floor(Math.random() * gridCount) * gridSize,
+          };
+        } else {
+          snake.pop();
+        }
+
+        if (head.x === starPos.x && starPos.y === head.y) {
+          score *= 2;
+          foodCount = 0;
+        }
+
+        snake.unshift(head);
+
+        draw();
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "ArrowRight" && direction !== "left") {
+          direction = "right";
+        }
+        if (event.key === "ArrowDown" && direction !== "up") {
+          direction = "down";
+        }
+        if (event.key === "ArrowLeft" && direction !== "right") {
+          direction = "left";
+        }
+        if (event.key === "ArrowUp" && direction !== "down") {
+          direction = "up";
+        }
+      }
+
+      function resetGame() {
+        snake = [
+          { x: 8 * gridSize, y: 8 * gridSize },
+          { x: 7 * gridSize, y: 8 * gridSize },
+          { x: 6 * gridSize, y: 8 * gridSize },
+        ];
+
+        direction = "right";
+        food = { x: 10 * gridSize, y: 10 * gridSize };
+        starPos = { x: 8 * gridSize, y: 8 * gridSize };
+        score = 0;
+        foodCount = 0;
+
+        draw();
+      }
+
+      function gameOver() {
+        console.log("Game Over");
+        resetGame();
+      }
+
+      let difficulty = 400;
+
+      function runGame() {
+        setInterval(update, difficulty);
+        document.addEventListener("keydown", handleKeyPress);
+      }
+
+      function difficultySelect() {
+        const difficultyValue = document.getElementById("difficulty-select");
+        if (difficultyValue.value === "easy") difficulty = 400;
+        if (difficultyValue.value === "medium") difficulty = 300;
+        if (difficultyValue.value === "hard") difficulty = 100;
+
+        console.log(difficultyValue.value);
+      }
+
+      function start() {
+        runGame();
+      }
+    </script>
+  </body>
+</html>
