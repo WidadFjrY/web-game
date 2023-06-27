@@ -3,6 +3,7 @@ const path = require("path");
 const indexRouter = require("./routes/index");
 const session = require("express-session");
 const app = express();
+const cors = require("cors");
 
 // Mengatur view engine
 app.set("views", path.join(__dirname, "views"));
@@ -17,6 +18,9 @@ app.use(
     secret: "2873hjj33hhjherhkjhsHIJh-ojfs0khnjkhs",
     resave: false,
     saveUninitialized: false,
+  }),
+  cors({
+    origin: "*",
   })
 );
 
